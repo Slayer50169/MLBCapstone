@@ -80,6 +80,7 @@ function Nav() {
                 <Link to='/teams'>Teams</Link>
                 <Link to='/games'>Games</Link>
             </div>
+            <ButtonUsage/>
             <div className='search-container'>
                 <input type="text" placeholder="Search for teams or players." id="searchBar" value={searchBar} onChange={handleChange} />
                 <div className='suggestions'>
