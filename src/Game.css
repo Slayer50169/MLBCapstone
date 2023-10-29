@@ -1,0 +1,21 @@
+.game{
+    display: block;
+    width: 25%;
+    border-radius: 5px;
+    background-color: lightblue;
+}
+
+.game div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    text-align: center;
+    
+}
+
+.game img {
+    vertical-align: middle;
+    height: 1.5em;
+    display: inline-block;
+}

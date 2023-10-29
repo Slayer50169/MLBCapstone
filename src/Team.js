@@ -36,7 +36,7 @@ function Team() {
     }
     return (
         <div className="team">
-            <img src={`https://www.mlbstatic.com/team-logos/team-cap-on-light/${teamData.id}.svg`} width={200} alt={teamData.name + ' logo'} title={teamData.name + ' logo'} />
+            <img id='teamLogo' src={`https://www.mlbstatic.com/team-logos/team-cap-on-light/${teamData.id}.svg`} width={200} alt={teamData.name + ' logo'} title={teamData.name + ' logo'} />
             <br />
             <p>{teamData.name}</p>
             <p>Home Park: {teamData.venue.name}</p>

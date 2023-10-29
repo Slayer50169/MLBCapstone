@@ -1,5 +1,5 @@
 .team {
-    text-align: left;
+    text-align: center;
 }
 
 .teamStaff{
@@ -29,4 +29,11 @@
 #headers{
     background-color: black;
     color:white;
+    
+}
+
+#teamLogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
