@@ -1,12 +1,20 @@
 nav{
-    background-color: rgb(171, 171, 235);
+    background-color: rgb(10, 10, 10);
     text-align: center;
     padding: 10px;
     position: sticky;
 }
 
+.MuiAutocomplete-root{
+  display: inline-flex;
+  overflow: hidden;
+  overflow
+}
+
 nav a {
     margin: 10px;
+    text-decoration: none;
+    color: white;
 }
 
 nav input{
