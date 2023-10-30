@@ -5,20 +5,31 @@ import ButtonUsage from './SearchBar';
 
 
 import './Nav.css';
+import { useTheme } from '@emotion/react';
 
 
 function Nav() {
+    const theme = useTheme();
+    console.log(theme);
     let mainReq = 'http://statsapi.mlb.com/api/v1'
     let [players, setPlayers] = useState([]);
     let [teams, setTeams] = useState([]);
     let [results, setResults] = useState([]);
     let [searchBar, setSearchBar] = useState('');
-    let [loading, isLoading] = useState(true);
+    let [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        getData();
+        setIsLoading(false);
+    }, [])
+
+    function getData(){
+        setIsLoading(true);
         getPlayers();
         getTeams();
-    }, [])
+        setIsLoading(false);
+        console.log(isLoading)
+    }
 
     function handleChange(e) {
         setSearchBar(e.target.value);
@@ -28,16 +39,19 @@ function Nav() {
     async function getPlayers() {
         let allPlayers = [];
         let seen = new Set();
+        console.log('loading players')
         for (let year = 1920; year <= (new Date().getFullYear()); year++) {
             let list = await axios.get(`${mainReq}/sports/1/players?fields=people,id,fullName,currentTeam&season=${year}`);
             for (let player of list.data.people) {
-                if (!(seen.has(player.id))) {
+                if (!(seen.has(player.fullName))) {
                     allPlayers.push(player);
-                    seen.add(player.id);
+                    seen.add(player.fullName);
                     setPlayers(allPlayers);
                 }
             }
         }
+        console.log('players loaded')
+        console.log(allPlayers);
         setPlayers(allPlayers);
     }
 
@@ -47,6 +61,7 @@ function Nav() {
             return team.sport.id === 1;
         })
         setTeams(res);
+        console.log('Teams Loaded')
     }
 
     function search(searchVal) {
@@ -65,10 +80,6 @@ function Nav() {
             }
         }
         setResults(res);
-
-
-
-
     }
 
     
@@ -80,29 +91,7 @@ function Nav() {
                 <Link to='/teams'>Teams</Link>
                 <Link to='/games'>Games</Link>
             </div>
-            <ButtonUsage/>
-            <div className='search-container'>
-                <input type="text" placeholder="Search for teams or players." id="searchBar" value={searchBar} onChange={handleChange} />
-                <div className='suggestions'>
-                    <ul onClick={(e) => {
-                        if (e.target.tagName === 'A') {
-                            setResults([])
-                            setSearchBar('')
-                        }
-                    }}>
-                        {results.slice(0, 10).map((data) => {
-                            if (data?.fullName) {
-                                return (
-                                    <li><Link to={`/player/${data.id}`}>{data.fullName}</Link></li>
-                                )
-                            }
-                            return (
-                                <li><Link to={`/team/${data.id}`}>{data.name}</Link></li>
-                            )
-                        })}
-                    </ul>
-                </div>
-            </div>
+            {isLoading ? <p>Loading...</p> : <ButtonUsage players={players} teams={teams}/>}
         </nav>
 
     )
