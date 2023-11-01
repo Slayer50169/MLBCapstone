@@ -21,7 +21,6 @@ function Player() {
         setIsLoading(true)
         let player = await axios.get(mainReq + id + '?hydrate=,currentTeam');
         setPlayerData(player.data.people[0]);
-        console.log(player.data)
         setIsLoading(false);
     }
 

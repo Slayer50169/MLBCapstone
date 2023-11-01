@@ -7,10 +7,12 @@ function Game({ game }) {
         inningCount = 0
         return (game.liveData.linescore.innings.map((inning) => {
             inningCount++;
+            if(!(inning.away?.runs >= 0)) return <td>-</td>
             if(team === 'away'){
-                return (
-                    <td inn={inning.num}>{inning.away.runs}</td>
-                )
+                    console.log('inning')
+                    return (
+                        <td inn={inning.num}>{inning.away.runs}</td>
+                    )   
             }
             return (
                 <td>{inning.home.runs}</td>
@@ -20,7 +22,8 @@ function Game({ game }) {
     }
     function getEmptyScore(){
         let emptyTds = []
-        for(let i = 0; i < game.liveData.linescore.currentInning - inningCount; i++){
+        console.log('emptyTds:', game.liveData.linescore.currentInning - inningCount)
+        for(let i = 0; i < 9 - inningCount; i++){
             emptyTds.push((<td>-</td>))
         }
         return emptyTds;

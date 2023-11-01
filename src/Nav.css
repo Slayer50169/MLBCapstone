@@ -1,5 +1,5 @@
-nav{
-    background-color: rgb(10, 10, 10);
+/* nav{
+    background-color: purple;
     text-align: center;
     padding: 10px;
     position: sticky;
@@ -8,7 +8,7 @@ nav{
 .MuiAutocomplete-root{
   display: inline-flex;
   overflow: hidden;
-  overflow
+  background-color: black;
 }
 
 nav a {
@@ -59,4 +59,4 @@ ul li {
 }
 ul li:hover {
   font-weight: bold;
-}
+} */

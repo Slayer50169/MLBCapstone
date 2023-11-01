@@ -6,11 +6,11 @@ import ButtonUsage from './SearchBar';
 
 import './Nav.css';
 import { useTheme } from '@emotion/react';
+import bootstrap from 'bootstrap';
 
 
 function Nav() {
     const theme = useTheme();
-    console.log(theme);
     let mainReq = 'http://statsapi.mlb.com/api/v1'
     let [players, setPlayers] = useState([]);
     let [teams, setTeams] = useState([]);
@@ -23,12 +23,11 @@ function Nav() {
         setIsLoading(false);
     }, [])
 
-    function getData(){
+    function getData() {
         setIsLoading(true);
         getPlayers();
         getTeams();
         setIsLoading(false);
-        console.log(isLoading)
     }
 
     function handleChange(e) {
@@ -39,7 +38,6 @@ function Nav() {
     async function getPlayers() {
         let allPlayers = [];
         let seen = new Set();
-        console.log('loading players')
         for (let year = 1920; year <= (new Date().getFullYear()); year++) {
             let list = await axios.get(`${mainReq}/sports/1/players?fields=people,id,fullName,currentTeam&season=${year}`);
             for (let player of list.data.people) {
@@ -50,8 +48,6 @@ function Nav() {
                 }
             }
         }
-        console.log('players loaded')
-        console.log(allPlayers);
         setPlayers(allPlayers);
     }
 
@@ -61,7 +57,6 @@ function Nav() {
             return team.sport.id === 1;
         })
         setTeams(res);
-        console.log('Teams Loaded')
     }
 
     function search(searchVal) {
@@ -82,16 +77,20 @@ function Nav() {
         setResults(res);
     }
 
-    
+
 
     return (
-        <nav>
-            <div className='navLinks'>
-                <Link to='/'>Home</Link>
-                <Link to='/teams'>Teams</Link>
-                <Link to='/games'>Games</Link>
+        <nav className='center navbar navbar-expand-lg navbar-dark bg-dark'>
+            <div>
+                <ul className='navbar-nav mr-auto'>
+                    <Link className='nav-link' to='/'>Home</Link>
+                    <Link className='nav-link' to='/teams'>Teams</Link>
+                    <Link className='nav-link' to='/games'>Games</Link>
+                    {isLoading ? <p>Loading...</p> : <ButtonUsage players={players} teams={teams} />}
+                </ul>
+
+                
             </div>
-            {isLoading ? <p>Loading...</p> : <ButtonUsage players={players} teams={teams}/>}
         </nav>
 
     )

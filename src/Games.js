@@ -17,17 +17,13 @@ function Games(){
         setGames([]);
         setIsLoading(true);
         let sched = await axios.get(mainReq + "/v1/schedule/games?sportId=1")
-        console.log(sched);
         let gameArray = []
         if(sched.data.dates[0]?.games){
             for(let game of sched.data.dates[0].games){
-                console.log('for')
                 let data = await axios.get(mainReq + `/v1.1/game/${game.gamePk}/feed/live`);
                 gameArray.push(data.data);
             }
-            console.log(gameArray);
             setGames(gameArray);
-            console.log('games:', games)
         }
         setIsLoading(false)
         
