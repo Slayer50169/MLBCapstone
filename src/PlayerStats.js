@@ -38,21 +38,23 @@ function PlayerStats({ id }) {
 
         if (statType === 'hitting') {
             return (
-                <table className="statTable">
-                    <tbody>
-                        <tr>
-                            <th>Season</th>
-                            <th>Games Played</th>
-                            <th>Plate Appearances</th>
-                            <th>AB</th>
-                            <th>H</th>
-                            <th>2B</th>
-                            <th>3B</th>
-                            <th>HR</th>
-                            <th>Ground Outs</th>
-                            <th>Fly Outs</th>
-                            <th>SO</th>
+                <table className="statTable table table-striped">
+                    <thead>
+                        <tr className="table-dark">
+                            <th scope="col" className='col-1'>Season</th>
+                            <th scope="col" className='col-1'>Games Played</th>
+                            <th scope="col" className='col-1'>Plate Appearances</th>
+                            <th scope="col" className='col-1'>AB</th>
+                            <th scope="col" className='col-1'>H</th>
+                            <th scope="col" className='col-1'>2B</th>
+                            <th scope="col" className='col-1'>3B</th>
+                            <th scope="col" className='col-1'>HR</th>
+                            <th scope="col" className='col-1'>Ground Outs</th>
+                            <th scope="col" className='col-1'>Fly Outs</th>
+                            <th scope="col" className='col-1'>SO</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         {playerStats[1].map((stat) => {
                             return (
                                 <tr>
@@ -88,21 +90,23 @@ function PlayerStats({ id }) {
             )
         } else if (statType === 'pitching') {
             return (
-                <table className="statTable">
-                    <tbody>
-                        <tr>
-                            <th>Year</th>
-                            <th>Games Played</th>
-                            <th>Games Started</th>
-                            <th>ERA</th>
-                            <th>AB</th>
-                            <th>H</th>
-                            <th>2B</th>
-                            <th>3B</th>
-                            <th>HR</th>
-                            <th>SO</th>
-                            <th>W-L</th>
+                <table className="statTable table table-striped">
+                    <thead className="thead-dark">
+                        <tr className="table-dark">
+                            <th scope="col" className="col-1">Year</th>
+                            <th scope="col" className="col-1">Games Played</th>
+                            <th scope="col" className="col-1">Games Started</th>
+                            <th scope="col" className="col-1">ERA</th>
+                            <th scope="col" className="col-1">AB</th>
+                            <th scope="col" className="col-1">H</th>
+                            <th scope="col" className="col-1">2B</th>
+                            <th scope="col" className="col-1">3B</th>
+                            <th scope="col" className="col-1">HR</th>
+                            <th scope="col" className="col-1">SO</th>
+                            <th scope="col" className="col-1">W-L</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         {playerStats[1].map((stat) => {
                             return (
                                 <tr>
@@ -139,22 +143,24 @@ function PlayerStats({ id }) {
         }
 
         return (
-            <table className="statTable">
-                <tbody>
-                    <tr>
-                        <th>Year</th>
-                        <th>Position</th>
-                        <th>Games Played</th>
-                        <th>Games Started</th>
-                        <th>Innings</th>
-                        <th>Assists</th>
-                        <th>Chances</th>
-                        <th>Put Outs</th>
-                        <th>Double Plays</th>
-                        <th>Triple Plays</th>
-                        <th>Fielding %</th>
-                        <th>Errors</th>
+            <table className="statTable table table-striped">
+                <thead>
+                    <tr className="table-dark">
+                        <th scope="col" className="col-1">Year</th>
+                        <th scope="col" className="col-1">Position</th>
+                        <th scope="col" className="col-1">Games Played</th>
+                        <th scope="col" className="col-1">Games Started</th>
+                        <th scope="col" className="col-1">Innings</th>
+                        <th scope="col" className="col-1">Assists</th>
+                        <th scope="col" className="col-1">Chances</th>
+                        <th scope="col" className="col-1">Put Outs</th>
+                        <th scope="col" className="col-1">Double Plays</th>
+                        <th scope="col" className="col-1">Triple Plays</th>
+                        <th scope="col" className="col-1">Fielding %</th>
+                        <th scope="col" className="col-1">Errors</th>
                     </tr>
+                </thead>
+                <tbody>
                     {playerStats[1].map((stat) => {
                         return (
                             <tr>

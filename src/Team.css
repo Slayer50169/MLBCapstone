@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.teamStaff table{
+/* .teamStaff table{
     border: 1px solid black;
     margin-top: 50px;
     margin-left: auto;
@@ -30,7 +30,7 @@
     background-color: black;
     color:white;
     
-}
+} */
 
 #teamLogo{
     display: block;

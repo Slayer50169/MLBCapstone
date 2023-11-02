@@ -1,4 +1,4 @@
-.stats {
+/* .stats {
     text-align: center;
 }
 
@@ -24,7 +24,7 @@ th {
 .statTable tr:nth-of-type(1) {
     background-color: black;
     color: white;
-}
+} */
 
 .stats label {
     text-align: center;

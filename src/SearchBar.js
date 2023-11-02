@@ -3,10 +3,9 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { createFilterOptions } from '@mui/core';
 
-export default function ButtonUsage({ players, teams }) {
+function SearchBar({ players, teams }) {
   const filterOptions = createFilterOptions({
     limit: 10
   });
@@ -35,7 +34,7 @@ export default function ButtonUsage({ players, teams }) {
       filterOptions={filterOptions}
       options={[...players, ...teams]}
       sx={{ width: 400}}
-      renderInput={(params) => <TextField {...params} sx={{ input: {color: 'rgba(255, 255, 255, 0.55)'}, label: {color: 'rgba(255, 255, 255, 0.55)'} }} size='small' label="Search for players or teams" />}
+      renderInput={(params) => <TextField {...params} sx={{ input: {color: 'black', 'background-color': 'white'}, '.Mui-focused' : {color: 'gray'}, label: {color: 'gray'}, div: {'background-color': 'white'} }} size='small' label="Search for players or teams" />}
       getOptionLabel={(player) => {
         if(player?.fullName) return player.fullName;
         return player.name
@@ -48,3 +47,4 @@ export default function ButtonUsage({ players, teams }) {
     />
   );
 }
+export default SearchBar;

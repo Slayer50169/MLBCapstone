@@ -49,7 +49,10 @@ function Player() {
                 <p>Plays for: <Link to={`/team/${playerData.currentTeam.id}`}>{playerData.currentTeam.name}</Link></p>
                 <hr />
             </div>
-            <PlayerStats id={id} />
+            <div className="container-fluid">
+                <PlayerStats id={id} />
+            </div>
+
         </>
 
     )

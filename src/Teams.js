@@ -37,23 +37,37 @@ function Teams() {
     }
 
     return (
-        <div className="teams">
-            <div className="americanLeague">
-                <h2>American League</h2>
-                {teams[0].map((team) => {
-                    return (
-                        <Link to={`/team/${team.id}`} className="teamLink">{team.name}</Link>
-                    )
-                })}
+        <div className="container-fluid text-center">
+            <h2>Teams</h2>
+            <div className="row justify-content-around">
+                <div className="americanLeague card bg-dark text-light col-4">
+                    <div className="card-body">
+                        <h2 className="card-title">American League</h2>
+                    </div>
+                    <ul className="list-group list-group-flush bg-dark text-light">
+                        {teams[0].map((team) => {
+                            return (
+                                <li className="list-group-item bg-dark"><Link to={`/team/${team.id}`} className="btn btn-dark">{team.name}</Link></li>
+                            )
+                        })}
+                    </ul>
+
+                </div>
+                <div className="nationalLeague card bg-dark text-light col-4">
+                    <div className="card-body">
+                        <h2 className="card-title">National League</h2>
+                    </div>
+                    <ul className="list-group list-group-flush">
+                        {teams[1].map((team) => {
+                            return (
+                                <li className="list-group-item bg-dark"><Link to={`/team/${team.id}`} className="btn btn-dark">{team.name}</Link></li>
+                            )
+                        })}
+                    </ul>
+
+                </div>
             </div>
-            <div className="nationalLeague">
-                <h2>National League</h2>
-                {teams[1].map((team) => {
-                    return (
-                        <Link to={`/team/${team.id}`} className="teamLink">{team.name}</Link>
-                    )
-                })}
-            </div>
+
         </div>
     )
 }

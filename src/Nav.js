@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import ButtonUsage from './SearchBar';
+import SearchBar from './SearchBar';
 
 
 import './Nav.css';
 import { useTheme } from '@emotion/react';
-import bootstrap from 'bootstrap';
+
 
 
 function Nav() {
@@ -80,13 +80,13 @@ function Nav() {
 
 
     return (
-        <nav className='center navbar navbar-expand-lg navbar-dark bg-dark'>
+        <nav className='center navbar navbar-expand-lg navbar-dark bg-dark sticky-top'>
             <div>
                 <ul className='navbar-nav mr-auto'>
                     <Link className='nav-link' to='/'>Home</Link>
                     <Link className='nav-link' to='/teams'>Teams</Link>
                     <Link className='nav-link' to='/games'>Games</Link>
-                    {isLoading ? <p>Loading...</p> : <ButtonUsage players={players} teams={teams} />}
+                    {isLoading ? <p>Loading...</p> : <SearchBar players={players} teams={teams} />}
                 </ul>
 
                 

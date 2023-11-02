@@ -35,7 +35,7 @@ function Team() {
         )
     }
     return (
-        <div className="team">
+        <div className="container">
             <img id='teamLogo' src={`https://www.mlbstatic.com/team-logos/team-cap-on-light/${teamData.id}.svg`} width={200} alt={teamData.name + ' logo'} title={teamData.name + ' logo'} />
             <br />
             <p>{teamData.name}</p>
@@ -43,13 +43,15 @@ function Team() {
             <p>First Played in {teamData.firstYearOfPlay}</p>
             <div className="teamStaff">
                 <h3>Team Roster</h3>
-                <table>
-                    <tbody>
-                        <tr id="headers">
-                            <td>#</td>
-                            <td>Name</td>
-                            <td>Position</td>
+                <table className="table table-striped">
+                    <thead>
+                    <tr className="table-dark">
+                            <th scope="col" className="col-4">#</th>
+                            <th scope="col" className="col-4">Name</th>
+                            <th scope="col" className="col-4">Position</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         {roster.map((person) => {
                             return (
                                 <tr>
