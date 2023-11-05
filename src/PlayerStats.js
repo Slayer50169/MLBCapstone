@@ -203,21 +203,16 @@ function PlayerStats({ id }) {
 
     return (
         <>
-            <div className="stats">
-                <h2>Career Stats</h2>
-                <div>
-                    <input type="radio" value='hitting' id="hitting" name="stats" />
-                    <label htmlFor="hitting" onClick={() => getStats('hitting')}>Hitting</label>
-                </div>
-                <div>
-                    <input type="radio" value='pitching' id="pitching" name="stats" />
-                    <label htmlFor="pitching" onClick={() => getStats('pitching')}>Pitching</label>
-                </div>
-                <div>
-                    <input type="radio" value='fielding' id="fielding" name="stats" />
-                    <label htmlFor="fielding" onClick={() => getStats('fielding')}>Fielding</label>
-                </div>
+            <h2>Career Stats</h2>
+            <div className="btn-group m-3" role="group">
+                <input className='btn-check' type="radio" id="hitting" name="stats" />
+                <label className='btn btn-dark' htmlFor="hitting" onClick={() => getStats('hitting')}>Hitting</label>
 
+                <input className="btn-check" type="radio" id="pitching" name="stats" />
+                <label className="btn btn-dark" htmlFor="pitching" onClick={() => getStats('pitching')}>Pitching</label>
+
+                <input className="btn-check" type="radio" id="fielding" name="stats" />
+                <label className="btn btn-dark" htmlFor="fielding" onClick={() => getStats('fielding')}>Fielding</label>
             </div>
             {(isLoading && <h1>Loading..</h1>) || getTable()}
         </>

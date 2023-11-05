@@ -7,7 +7,7 @@ function Home() {
             <h1 className='text-light'>Major League Baseball Statistics</h1>
             <hr />
             <div className='row justify-content-center'>
-                <div className='card col-4 bg-dark text-light'>
+                <div className='card col-4 text-bg-dark'>
                     <div className='card-body'>
                         <h2 className='card-title'>About</h2>
                         <p className='card-text'>
@@ -21,7 +21,7 @@ function Home() {
             <br />
             <br />
             <div className='row justify-content-around'>
-                <div className='card bg-dark text-light col-4'>
+                <div className='card text-bg-dark col-4'>
                     <div className='card-body'>
                         <h2 className='card-title'>Teams</h2>
                         <p className='card-text'>
@@ -31,7 +31,7 @@ function Home() {
                         <Link className='btn btn-primary' to='/teams'>Take me there!</Link>
                     </div>
                 </div>
-                <div className='card bg-dark text-light col-4'>
+                <div className='card text-bg-dark col-4'>
                     <div className='card-body'>
                         <h2 className='card-title'>Players</h2>
                         <p className='card-text'>
@@ -46,7 +46,7 @@ function Home() {
             <br/>
             <br/>
             <div className='row justify-content-center'>
-                <div className='card col-4 bg-dark text-light'>
+                <div className='card col-4 text-bg-dark'>
                     <div className='card-body'>
                         <h2 className='card-title'>Games</h2>
                         <p className='card-text'>

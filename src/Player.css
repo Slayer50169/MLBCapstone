@@ -1,11 +1,15 @@
+:root{
+    --player-photo: url('');
+}
+
 .player {
     text-align: left;
 }
 
-p {
+/* .player p {
     display: inline;
     margin: .5vw;
-}
+} */
 
 #name {
     display: inline;
@@ -14,25 +18,10 @@ p {
     font-weight: bold;
 }
 
-input[type='radio'] {
-    width: 0px;
-    height: 0px;
-    margin: 0px;
-    visibility: hidden;
-
-}
-
-input[type='radio']:checked~label {
-    background-color: gray;
-}
 
 #headshot {
     border: 10px solid white;
     position: absolute;
-}
-
-.stats div {
-    display: inline;
 }
 
 #hero {

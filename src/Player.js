@@ -13,6 +13,7 @@ function Player() {
 
     useEffect(() => {
         getPlayerData();
+
     }, [id]);
 
 
@@ -31,29 +32,32 @@ function Player() {
     }
 
     return (
-        <>
-            <div className="player">
-                <img id='headshot' src={`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${playerData.id}/headshot/67/current`} alt={playerData.fullName} title={playerData.fullName} />
+        <div className="bg-dark-subtle pb-1">
+            <div className="player bg-dark text-light">
+                <img className="img-responsive" id='headshot' src={`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${playerData.id}/headshot/67/current`} alt={playerData.fullName} title={playerData.fullName} />
                 <img id='hero' src={`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:action:hero:current.jpg/q_auto:good,w_1500/v1/people/${playerData.id}/action/hero/current`} alt={playerData.fullName} title={playerData.fullName} />
                 <br />
-                <p id="name">{playerData.fullName}</p>
-                <p>#{playerData.primaryNumber}</p>
-                <p>{playerData.primaryPosition.name}</p>
-                <p>Age: {playerData.currentAge}</p>
-                <p>Height: {playerData.height}</p>
-                <p>Weighs: {playerData.weight} Lbs</p>
-                <p>Born: {playerData.birthDate}</p>
-                <p>Debut: {playerData.mlbDebutDate}</p>
-                <p>From: {playerData.birthCountry}</p>
-                <p>B/T: {playerData.batSide.code}/{playerData.pitchHand.code}</p>
-                <p>Plays for: <Link to={`/team/${playerData.currentTeam.id}`}>{playerData.currentTeam.name}</Link></p>
-                <hr />
+                <div className="d-flex p-2 pl-3 m-0">
+                    <p className="fw-bold fs-2">{playerData.fullName}</p>
+                    <p className="fs-6 p-3 m-0">#{playerData.primaryNumber}</p>
+                    <p className="fs-6 p-3 m-0">{playerData.primaryPosition.name}</p>
+                    <p className="fs-6 p-3 m-0">Age: {playerData.currentAge}</p>
+                    <p className="fs-6 p-3 m-0">Height: {playerData.height}</p>
+                    <p className="fs-6 p-3 m-0">Weighs: {playerData.weight} Lbs</p>
+                    <p className="fs-6 p-3 m-0">Born: {playerData.birthDate}</p>
+                    <p className="fs-6 p-3 m-0">Debut: {playerData.mlbDebutDate}</p>
+                    <p className="fs-6 p-3 m-0">From: {playerData.birthCountry}</p>
+                    <p className="fs-6 p-3 m-0">B/T: {playerData.batSide.code}/{playerData.pitchHand.code}</p>
+                    <p className="fs-6 p-3 m-0">Plays for: <Link to={`/team/${playerData.currentTeam.id}`}>{playerData.currentTeam.name}</Link></p>
+                </div>
+
+
             </div>
-            <div className="container-fluid">
+            <div className="container-fluid bg-dark-subtle">
                 <PlayerStats id={id} />
             </div>
 
-        </>
+        </div>
 
     )
 }

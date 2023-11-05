@@ -10,12 +10,9 @@ import { useTheme } from '@emotion/react';
 
 
 function Nav() {
-    const theme = useTheme();
     let mainReq = 'http://statsapi.mlb.com/api/v1'
     let [players, setPlayers] = useState([]);
     let [teams, setTeams] = useState([]);
-    let [results, setResults] = useState([]);
-    let [searchBar, setSearchBar] = useState('');
     let [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -24,18 +21,16 @@ function Nav() {
     }, [])
 
     function getData() {
+        // Calls functions to get data for teams and players
         setIsLoading(true);
         getPlayers();
         getTeams();
         setIsLoading(false);
     }
 
-    function handleChange(e) {
-        setSearchBar(e.target.value);
-        search(e.target.value)
-    }
 
     async function getPlayers() {
+        // Gets players from the API starting from the beginning year to current year
         let allPlayers = [];
         let seen = new Set();
         for (let year = 1920; year <= (new Date().getFullYear()); year++) {
@@ -52,6 +47,7 @@ function Nav() {
     }
 
     async function getTeams() {
+        // Gets current teams
         let list = await axios.get(`${mainReq}/teams`)
         let res = list.data.teams.filter((team) => {
             return team.sport.id === 1;
@@ -59,37 +55,20 @@ function Nav() {
         setTeams(res);
     }
 
-    function search(searchVal) {
-        setResults([]);
-        if (searchVal === '') return;
-
-        let res = [];
-        for (let team of teams) {
-            if (team.name.toLowerCase().includes(searchVal.toLowerCase())) {
-                res.push(team);
-            }
-        }
-        for (let player of players) {
-            if (player.fullName.toLowerCase().includes(searchVal.toLowerCase())) {
-                res.push(player);
-            }
-        }
-        setResults(res);
-    }
-
-
-
     return (
-        <nav className='center navbar navbar-expand-lg navbar-dark bg-dark sticky-top'>
+        <nav className='navbar navbar-expand-lg bg-dark sticky-top' data-bs-theme="dark">
             <div>
-                <ul className='navbar-nav mr-auto'>
-                    <Link className='nav-link' to='/'>Home</Link>
-                    <Link className='nav-link' to='/teams'>Teams</Link>
-                    <Link className='nav-link' to='/games'>Games</Link>
-                    {isLoading ? <p>Loading...</p> : <SearchBar players={players} teams={teams} />}
-                </ul>
-
-                
+                <div className='container-fluid'>
+                    <div className='collapse navbar-collapse'>
+                    <ul className='navbar-nav'>
+                        <li className='nav-item'><Link className='nav-link' to='/'>Home</Link></li>
+                        <li className='nav-item'><Link className='nav-link' to='/teams'>Teams</Link></li>
+                        <li className='nav-item'><Link className='nav-link' to='/games'>Games</Link></li>
+                        {isLoading ? <p>Loading...</p> : <SearchBar players={players} teams={teams} />}
+                    </ul>
+                    </div>
+                    
+                </div>
             </div>
         </nav>
 

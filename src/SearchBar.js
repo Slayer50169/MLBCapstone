@@ -7,7 +7,7 @@ import { createFilterOptions } from '@mui/core';
 
 function SearchBar({ players, teams }) {
   const filterOptions = createFilterOptions({
-    limit: 10
+    limit: 5
   });
 
   const navigate = useNavigate();
@@ -34,10 +34,10 @@ function SearchBar({ players, teams }) {
       filterOptions={filterOptions}
       options={[...players, ...teams]}
       sx={{ width: 400}}
-      renderInput={(params) => <TextField {...params} sx={{ input: {color: 'black', 'background-color': 'white'}, '.Mui-focused' : {color: 'gray'}, label: {color: 'gray'}, div: {'background-color': 'white'} }} size='small' label="Search for players or teams" />}
-      getOptionLabel={(player) => {
-        if(player?.fullName) return player.fullName;
-        return player.name
+      renderInput={(params) => <TextField  {...params} sx={{ input: {color: 'black', 'background-color': 'white'}, '.Mui-focused' : {color: 'gray'}, label: {color: 'gray'}, div: {'background-color': 'white'} }} size='small' />}
+      getOptionLabel={(option) => {
+        if(option?.fullName) return option.fullName;
+        return option.name
       }}
       renderOption={(props, option) => (
         <Box  component="li" sx={{ '&': { mr: 2}}} {...props}>

@@ -11,19 +11,23 @@ function Games(){
 
 
     useEffect(() => {
+        // Gets games when the date is changed
         getGames();
     }, [value])
 
     function getDate(){
+        // Gets todays today and returns it in a format that the input can handle.
         let today = new Date();
         return today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
     }
 
     function handleChange(e){
+        // Handles changes for the date input
         setValue(e.target.value);
     }
 
     async function getGames(){
+        // Gets games for the date that is picked, current date on start.
         setGames([]);
         setIsLoading(true);
         let sched = await axios.get(mainReq + `/v1/schedule/games?sportId=1&date=${value.substring(5,7)}/${value.substring(8,10)}/${value.substring(0,4)}`)

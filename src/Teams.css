@@ -25,3 +25,7 @@
     margin: 25px;
     text-decoration: none;
 } */
+
+li img{
+    max-height: 50px;
+}
