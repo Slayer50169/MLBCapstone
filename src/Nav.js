@@ -3,29 +3,20 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
-
-import './Nav.css';
-import { useTheme } from '@emotion/react';
-
-
-
 function Nav() {
     let mainReq = 'http://statsapi.mlb.com/api/v1'
     let [players, setPlayers] = useState([]);
     let [teams, setTeams] = useState([]);
-    let [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getData();
-        setIsLoading(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function getData() {
         // Calls functions to get data for teams and players
-        setIsLoading(true);
         getPlayers();
         getTeams();
-        setIsLoading(false);
     }
 
 
@@ -56,19 +47,18 @@ function Nav() {
     }
 
     return (
-        <nav className='navbar navbar-expand-lg bg-dark sticky-top' data-bs-theme="dark">
-            <div>
-                <div className='container-fluid'>
-                    <div className='collapse navbar-collapse'>
-                    <ul className='navbar-nav'>
-                        <li className='nav-item'><Link className='nav-link' to='/'>Home</Link></li>
-                        <li className='nav-item'><Link className='nav-link' to='/teams'>Teams</Link></li>
-                        <li className='nav-item'><Link className='nav-link' to='/games'>Games</Link></li>
-                        {isLoading ? <p>Loading...</p> : <SearchBar players={players} teams={teams} />}
-                    </ul>
-                    </div>
-                    
-                </div>
+        <nav className='navbar navbar-expand-lg navbar-dark bg-dark p-2' data-bs-theme="dark">
+            <Link to='/' className='navbar-brand'>MLB Stats</Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className='collapse navbar-collapse' id='navbarNav'>
+                <ul className='navbar-nav'>
+                    <li className='nav-item'><Link className='nav-link' to='/'>Home</Link></li>
+                    <li className='nav-item'><Link className='nav-link' to='/teams'>Teams</Link></li>
+                    <li className='nav-item'><Link className='nav-link' to='/games'>Games</Link></li>
+                    <li className='nav-item search-container pb-5 pb-lg-0'><SearchBar players={players} teams={teams} /></li>
+                </ul>
             </div>
         </nav>
 
