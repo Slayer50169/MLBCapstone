@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/MLBCapstone/static/css/main.9f2509bd.css",
-    "main.js": "/MLBCapstone/static/js/main.b525b75a.js",
+    "main.js": "/MLBCapstone/static/js/main.f75c4a4d.js",
     "static/js/787.d9a7d560.chunk.js": "/MLBCapstone/static/js/787.d9a7d560.chunk.js",
     "index.html": "/MLBCapstone/index.html",
     "main.9f2509bd.css.map": "/MLBCapstone/static/css/main.9f2509bd.css.map",
-    "main.b525b75a.js.map": "/MLBCapstone/static/js/main.b525b75a.js.map",
+    "main.f75c4a4d.js.map": "/MLBCapstone/static/js/main.f75c4a4d.js.map",
     "787.d9a7d560.chunk.js.map": "/MLBCapstone/static/js/787.d9a7d560.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9f2509bd.css",
-    "static/js/main.b525b75a.js"
+    "static/js/main.f75c4a4d.js"
   ]
 }
