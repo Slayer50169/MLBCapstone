@@ -9,7 +9,7 @@ function Player() {
     let { id } = useParams();
     let [playerData, setPlayerData] = useState({});
     let [isLoading, setIsLoading] = useState(true);
-    let mainReq = 'http://statsapi.mlb.com/api/v1/people/'
+    let mainReq = 'https://statsapi.mlb.com/api/v1/people/'
 
 
     useEffect(() => {

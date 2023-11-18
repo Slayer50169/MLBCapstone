@@ -9,7 +9,7 @@ function Team() {
     let [roster, setRoster] = useState([]);
     let [teamData, setTeamData] = useState({});
     let [isLoading, setIsLoading] = useState(true);
-    let mainReq = 'http://statsapi.mlb.com/api/v1/teams/'
+    let mainReq = 'https://statsapi.mlb.com/api/v1/teams/'
 
     useEffect(() => {
         getTeamData();

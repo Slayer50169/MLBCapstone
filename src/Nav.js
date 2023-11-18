@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 function Nav() {
-    let mainReq = 'http://statsapi.mlb.com/api/v1'
+    let mainReq = 'https://statsapi.mlb.com/api/v1'
     let [players, setPlayers] = useState([]);
     let [teams, setTeams] = useState([]);
 

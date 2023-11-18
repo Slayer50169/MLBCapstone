@@ -9,7 +9,7 @@ function PlayerStats({ id }) {
     let [statType, setStatType] = useState('hitting');
     let [isLoading, setIsLoading] = useState(true);
     let navigate = useNavigate();
-    let mainReq = 'http://statsapi.mlb.com/api/v1/people/';
+    let mainReq = 'https://statsapi.mlb.com/api/v1/people/';
 
     useEffect(() => {
         getStats(statType);
