@@ -1,11 +1,4 @@
-.game{
-    display: block;
-    width: 25%;
-    border-radius: 5px;
-    background-color: lightblue;
-}
-
-.game div{
+#gameTeamLogos{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -14,8 +7,8 @@
     
 }
 
-.game img {
+#gameTeamLogos img {
     vertical-align: middle;
-    height: 1.5em;
+    height: 2em;
     display: inline-block;
 }
