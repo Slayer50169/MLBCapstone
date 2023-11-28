@@ -1,0 +1,14 @@
+.team {
+    text-align: center;
+}
+
+.teamStaff{
+    text-align: center;
+}
+
+#teamLogo{
+    display: block;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
