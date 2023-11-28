@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MLBCapstone/static/css/main.9f2509bd.css",
-    "main.js": "/MLBCapstone/static/js/main.f928a645.js",
-    "static/js/787.d9a7d560.chunk.js": "/MLBCapstone/static/js/787.d9a7d560.chunk.js",
-    "index.html": "/MLBCapstone/index.html",
-    "main.9f2509bd.css.map": "/MLBCapstone/static/css/main.9f2509bd.css.map",
-    "main.f928a645.js.map": "/MLBCapstone/static/js/main.f928a645.js.map",
-    "787.d9a7d560.chunk.js.map": "/MLBCapstone/static/js/787.d9a7d560.chunk.js.map"
+    "main.css": "/static/css/main.9f2509bd.css",
+    "main.js": "/static/js/main.f5102f35.js",
+    "static/js/787.d9a7d560.chunk.js": "/static/js/787.d9a7d560.chunk.js",
+    "index.html": "/index.html",
+    "main.9f2509bd.css.map": "/static/css/main.9f2509bd.css.map",
+    "main.f5102f35.js.map": "/static/js/main.f5102f35.js.map",
+    "787.d9a7d560.chunk.js.map": "/static/js/787.d9a7d560.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9f2509bd.css",
-    "static/js/main.f928a645.js"
+    "static/js/main.f5102f35.js"
   ]
 }
