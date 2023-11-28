@@ -42,7 +42,7 @@ function SearchBar({ players, teams }) {
       }}
       renderOption={(props, option) => (
         <Box  component="li" sx={{ '&': { mr: 2}, height: '100%'}} {...props}>
-          <img style={{height: '100%', width: '25%', objectFit: 'contain'}} src={option?.fullName ? `https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${option.id}/headshot/67/current` : `https://www.mlbstatic.com/team-logos/team-cap-on-dark/${option.id}.svg` } alt={option?.fullName ? option.fullName : `${option.name} logo`}/>
+          <img style={{height: '100%', width: '25%', objectFit: 'contain'}} src={option?.fullName ? `https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${option.id}/headshot/67/current` : `https://www.mlbstatic.com/team-logos/team-cap-on-light/${option.id}.svg` } alt={option?.fullName ? option.fullName : `${option.name} logo`}/>
           {option?.fullName ? option.fullName : option.name}
         </Box>
       )}
