@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import NotFound from "./NotFound";
 import axios from "axios";
 import './Team.css'
 
@@ -12,44 +13,43 @@ function Team() {
 
     useEffect(() => {
         getTeamData();
-        console.log(teamData);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     async function getTeamData() {
+        //Requests data for the team
         setIsLoading(true);
-        let data = await axios.get(mainReq + id);
+        let data = await axios.get(mainReq + id).catch(() => {
+            return;
+        });
+        if (!data) {
+            setTeamData(null);
+            setIsLoading(false);
+            return;
+        }
         setTeamData(data.data.teams[0]);
         getRoster();
         setIsLoading(false);
     }
 
     async function getRoster() {
+        //Requests data for the teams roster
         let roster = await axios.get(mainReq + id + '/roster');
-        console.log(roster)
         setRoster(roster.data.roster);
     }
 
-    if (isLoading) {
-        return (
-            <p>Loading...</p>
-        )
-    }
-    return (
-        <div className="team">
-            <img id='teamLogo' src={`https://www.mlbstatic.com/team-logos/team-cap-on-light/${teamData.id}.svg`} width={200} alt={teamData.name + ' logo'} title={teamData.name + ' logo'} />
-            <br />
-            <p>{teamData.name}</p>
-            <p>Home Park: {teamData.venue.name}</p>
-            <p>First Played in {teamData.firstYearOfPlay}</p>
-            <div className="teamStaff">
-                <h3>Team Roster</h3>
-                <table>
-                    <tbody>
-                        <tr id="headers">
-                            <td>#</td>
-                            <td>Name</td>
-                            <td>Position</td>
+    function getRosterTable() {
+        return roster ? (
+            <div className="table-responsive">
+                <table className="table table-striped">
+                    <thead>
+                        <tr className="table-dark">
+                            <th scope="col" className="col-4">#</th>
+                            <th scope="col" className="col-4">Name</th>
+                            <th scope="col" className="col-4">Position</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         {roster.map((person) => {
                             return (
                                 <tr>
@@ -61,6 +61,28 @@ function Team() {
                         })}
                     </tbody>
                 </table>
+            </div>
+        ) : <h5>No roster available.</h5>
+    }
+
+    if (isLoading) {
+        return (
+            <p>Loading...</p>
+        )
+    }
+
+    if (!teamData) return <NotFound />;
+
+    return (
+        <div className="container-fluid text-bg-dark bg-dark-subtle pb-1">
+            {<img id='teamLogo' src={`https://www.mlbstatic.com/team-logos/team-cap-on-dark/${teamData.id}.svg`} alt={teamData.name + ' logo'} onError={(e) => e.target.style.display = 'none'} title={teamData.name + ' logo'} /> ?? null}
+            <br />
+            <h2>{teamData.name}</h2>
+            <p>Home Park: {teamData.venue.name}</p>
+            <p>First Played in {teamData.firstYearOfPlay}</p>
+            <div className="teamStaff container">
+                <h3>Team Roster</h3>
+                {getRosterTable()}
             </div>
         </div>
     )
