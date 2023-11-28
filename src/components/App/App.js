@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App bg-dark-subtle" data-bs-theme='dark'>
       <ParallaxProvider>
-        <HashRouter>
+        <BrowserRouter>
           <Nav />
           <Routes />
-        </HashRouter>
+        </BrowserRouter>
       </ParallaxProvider>
     </div>
   );
