@@ -17,27 +17,33 @@ function SearchBar({ players, teams }) {
   const [inputValue, setInputValue] = React.useState('');
     
   function handleChange(event, newValue){
-      setValue(newValue)
-      if(newValue === null) return;
-      navigate(newValue?.fullName ? `/player/${newValue.id}` : `/team/${newValue.id}`)
+      if(newValue?.name || newValue?.fullName){
+        setValue(newValue)
+        console.log("navigating")
+        navigate(newValue?.fullName ? `/player/${newValue.id}` : `/team/${newValue.id}`)
+      }
   }
 
   return (
     <Autocomplete
       disablePortal
-      value={value || null}
+      value={value}
       inputValue={inputValue}
       onChange={handleChange}
       freeSolo={true}
       onInputChange={(event, newInputVal)=>{
         setInputValue(newInputVal);
       }}
+      noOptionsText='Nothing found!'
       filterOptions={filterOptions}
       options={[...players, ...teams]}
       className='search'
       sx={{position: 'absolute'}}
       renderInput={(params) => <TextField placeholder="Search for teams or players"  {...params} sx={{ 'label:focused': {display: 'hidden'}, input: {color: 'black', 'background-color': 'white'}, '.Mui-focused' : {color: 'gray'}, label: {color: 'gray'}, div: {'background-color': 'white'} }} size='small' />}
       getOptionLabel={(option) => {
+        if (option?.fullName) return option.fullName
+        else if (option?.name) return option.name
+        else return ''
         return option?.fullName ? option.fullName : option.name
       }}
       renderOption={(props, option) => (

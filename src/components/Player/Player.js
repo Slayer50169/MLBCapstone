@@ -45,7 +45,7 @@ function Player() {
         <Parallax className='parallax' strength={1000} bgImage={`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:action:hero:current.jpg/q_auto:good,w_1500/v1/people/${playerData.id}/action/hero/current`}>
             <div className="player card text-light bg-dark-subtle mt-5 mx-auto col-6 col-sm-4 col-md-2" >
                 <div className="card-body">
-                    <img className="card-img-top" id='headshot' style={{ 'max-width': '100%' }} src={`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${playerData.id}/headshot/67/current`} alt={playerData.fullName} title={playerData.fullName} />
+                    <img className="card-img-top" id='headshot' style={{ 'maxWidth': '100%' }} src={`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${playerData.id}/headshot/67/current`} alt={playerData.fullName} title={playerData.fullName} />
                     <h4 className="card-title">{playerData.fullName}</h4>
                 </div>
             </div>
@@ -60,7 +60,7 @@ function Player() {
                     <li className="list-group-item bg-dark-subtle">Born: {playerData.birthDate}</li>
                     <li className="list-group-item bg-dark-subtle">Debut: {playerData.mlbDebutDate}</li>
                     <li className="list-group-item bg-dark-subtle">From: {playerData.birthCountry}</li>
-                    <li className="list-group-item bg-dark-subtle">B/T: {playerData.batSide.code}/{playerData.pitchHand.code}</li>
+                    <li className="list-group-item bg-dark-subtle">B/T: {playerData.batSide?.code || "N/A"}/{playerData.pitchHand?.code || "N/A"}</li>
                     <li className="list-group-item bg-dark-subtle">Plays for: <Link to={`/team/${playerData.currentTeam.id}`}>{playerData.currentTeam.name}</Link></li>
                 </ul>
             </div>

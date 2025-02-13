@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 function Home() {
     return (
-        <Parallax bgImage='https://gobearcats.com/images/2023/5/24/Recap_Photo.jpg'>
-            <div className='home container-fluid text-center vh-100'>
+        <Parallax bgImage='https://gobearcats.com/images/2023/5/24/Recap_Photo.jpg' className='min-vh-100'>
+            <div className='home container-fluid text-center'>
                 <div className='row justify-content-center'>
                     <div className='card col-10 col-sm-8 col-md-6 col-lg-4 text-bg-dark mt-5'>
                         <div className='card-body'>
@@ -17,7 +17,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='row justify-content-around mt-5'>
+                <div className='row justify-content-center mt-5'>
                     <div className='card text-bg-dark col-10 col-sm-8 col-md-6 col-lg-4'>
                         <div className='card-body'>
                             <h2 className='card-title'>Teams</h2>
