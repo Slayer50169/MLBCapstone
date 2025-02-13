@@ -44,7 +44,6 @@ function SearchBar({ players, teams }) {
         if (option?.fullName) return option.fullName
         else if (option?.name) return option.name
         else return ''
-        return option?.fullName ? option.fullName : option.name
       }}
       renderOption={(props, option) => (
         <Box  component="li" sx={{ '&': { mr: 2}, height: '100%'}} {...props}>
